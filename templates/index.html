@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-</head>
-<body>
-<h1>Hello Bitch!</h1>
-</body>
-</html>
+{% extends 'main.html' %}
+
+{% block content %}
+
+<a href="{% url 'create-project' %}">Create Project</a>
+
+<div class="container">
+    {% for project in projects %}
+    <div class="project_card">
+        <h4>Project Name: {{project.name}}</h4>
+        <a href="#">Project Url</a>
+        <a href="#">Project on GitHub</a>
+    </div>
+    <a href="{% url 'update-project' project.id %}">Update Project</a>
+    <a href="{% url 'delete-project' project.id %}">Delete Project</a>
+
+    <hr>
+    {% endfor %}
+</div>
+{% endblock %}
