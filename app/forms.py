@@ -15,3 +15,4 @@ class ProjectUpdateForm(ModelForm):
         model = Project
         fields = '__all__'
         exclude = ['programmer']
+

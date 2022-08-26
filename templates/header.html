@@ -3,9 +3,12 @@
       <a href="/" class="flex items-center">
           <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">DeveloperSearch</span>
       </a>
-      <a href="/login" class="flex items-center">
-        Login
-      </a>
+        {% if request.user.is_authenticated %}
+        <p><a href="{% url 'logout' %}" class="flex items-center">Logout</a>{{request.user|title}}</p>
+
+        {% else %}
+      <a href="{% url 'login' %}" class="flex items-center">Login</a>
+        {% endif %}
 <!--    <div class="drawer drawer-end flex items-center">-->
 <!--      <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />-->
 <!--      <div class="drawer-content">-->
