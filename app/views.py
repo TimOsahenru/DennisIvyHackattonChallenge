@@ -7,6 +7,16 @@ from django.contrib.messages.views import messages
 from django.contrib.auth.decorators import login_required
 
 
+# ................... Profile ...................
+def profile(request, pk):
+
+    programmer = User.objects.get(id=pk)
+    my_projects = programmer.project_set.all()
+
+    context = {'programmer': programmer, 'my_projects': my_projects}
+    return render(request, 'profile.html', context)
+
+
 # ................... All Projects ...................
 def project_list(request):
     projects = Project.objects.all()
