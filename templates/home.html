@@ -4,7 +4,7 @@
 <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
     {% for project in projects %}
     <a href="{% url 'project-detail' project.id %}">
-      <div class="rounded overflow-hidden bg-gray-900 border border-gray-800 rounded shadow">
+      <div class="rounded overflow-hidden shadow-lg">
         <img class="w-full" src="https://www.codemotion.com/magazine/wp-content/uploads/2020/05/developer-typing-on-keyboard-896x504.jpg" alt="Mountain" />
         <div class="px-6 py-4">
           <div class="font-bold text-white text-xl mb-2">{{project.name}}</div>

@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block body %}
+<h4>Name: {{programmer.username|title}}</h4>
+
+<h4>Email: </h4>
+<h4>Phone Nos: </h4>
+<h4>Years of experience: </h4>
+<h4>Avatar: </h4>
+<h4>Major Language: </h4>
+<h4>About: </h4>
+<h4>GitHub: </h4>
+<hr>
+<!-- Change later to ensure only programmers can see their on projects -->
+{% if request.user.is_authenticated %}
+<a href="#">Update Profile</a>
+<a href="{% url 'create-project' %}">Create New Project</a>
+{% endif %}
+<hr>
+{% include 'programmer-projects.html' %}
+
+
+{% endblock body %}
