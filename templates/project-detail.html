@@ -2,7 +2,8 @@
 
 {% block body %}
         <h4>Project Name:{{project.name}}</h4>
-        <img src="https://www.codemotion.com/magazine/wp-content/uploads/2020/05/developer-typing-on-keyboard-896x504.jpg" height="500" width="500">
+        <!--<img src="https://www.codemotion.com/magazine/wp-content/uploads/2020/05/developer-typing-on-keyboard-896x504.jpg" height="500" width="500">-->
+        <img src="{{project.image.url}}" height="500" width="500">
         <p>About: {{project.description}}</p>
         <a href="#">GitHub</a>
         <a href="#">Live Project</a>

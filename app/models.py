@@ -15,7 +15,7 @@ class Project(models.Model):
     name = models.CharField(max_length=100, blank=True, null=True)
     url = models.CharField(max_length=2000, blank=True, null=True)
     major_language = models.ForeignKey(Language, on_delete=models.SET_NULL, blank=True, null=True)
-    # image =
+    image = models.ImageField(null=True, default=None)
     description = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
 

@@ -31,8 +31,8 @@ def project_update(request, pk):
     # programmer = request.user
 
     if request.method == 'POST':
-        form = ProjectUpdateForm(request.POST, instance=project)
-        if form.is_valid:
+        form = ProjectUpdateForm(request.POST, request.FILES, instance=project)
+        if form.is_valid():
             form.save()
             # return redirect('profile', pk=programmer.id)
             return redirect('projects')
@@ -58,12 +58,12 @@ def project_delete(request, pk):
 @login_required(login_url='login')
 def project_create(request):
     page = 'create'
-    form = ProjectCreateForm
+    form = ProjectCreateForm()
     # programmer = request.user
 
     if request.method == 'POST':
-        form = ProjectCreateForm(request.POST)
-        if form.is_valid:
+        form = ProjectCreateForm(request.POST, request.FILES)
+        if form.is_valid():
             project = form.save(commit=False)
             project.programmer = request.user
             project.save()
